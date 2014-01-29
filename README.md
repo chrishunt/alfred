@@ -10,4 +10,5 @@ Have you heard of this thing called [Alfred][alfred]?
 - [`github`][github] Use this workflow to open repositories and issues on
   github.com using Alfred.
 
+[alfred]: http://www.alfredapp.com
 [github]: https://github.com/chrishunt/alfred/github
