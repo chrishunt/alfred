@@ -17,10 +17,10 @@ After you have imported the [workflow][workflow], you can change the default
 user by modifying [`DEFAULT_USER`][user] in the workflow script.
 
 If there are repositories that you access frequently, you can create aliases
-by adding to [`REPO_ALIASES`][aliases].
+by adding to [`REPO_ALIASES`][aliases]
 
 [alfred]: http://www.alfredapp.com
-[aliases]: TODO
+[aliases]: https://github.com/chrishunt/alfred/blob/55fb4a9f95a8b5b568bfbefc5976b9c83c69b4bf/github/github_alfred.rb#L7-L12
 [github]: https://github.com
-[user]: https://github.com/chrishunt/alfred/blob/a3ef11e5ad73a2c71c4e72fafcee477cc0a07b2c/github/github_alfred.rb#L3
+[user]: https://github.com/chrishunt/alfred/blob/55fb4a9f95a8b5b568bfbefc5976b9c83c69b4bf/github/github_alfred.rb#L4-L5
 [workflow]: https://github.com/chrishunt/alfred/blob/master/github/GitHub.alfredworkflow?raw=true
