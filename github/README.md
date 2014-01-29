@@ -18,5 +18,5 @@ user by modifying [`DEFAULT_USER`][user] in the workflow script.
 
 [alfred]: http://www.alfredapp.com
 [github]: https://github.com
-[workflow]: GitHub.alfredworkflow
+[workflow]: https://github.com/chrishunt/alfred/blob/master/github/GitHub.alfredworkflow?raw=true
 [user]: https://github.com/chrishunt/alfred/blob/a3ef11e5ad73a2c71c4e72fafcee477cc0a07b2c/github/github_alfred.rb#L3
