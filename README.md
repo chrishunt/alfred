@@ -11,4 +11,4 @@ Have you heard of this thing called [Alfred][alfred]?
   github.com using Alfred.
 
 [alfred]: http://www.alfredapp.com
-[github]: https://github.com/chrishunt/alfred/github
+[github]: https://github.com/chrishunt/alfred/tree/master/github
