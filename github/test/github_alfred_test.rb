@@ -38,5 +38,10 @@ describe GitHubAlfred do
       @command = 'chris/dotfiles 1234'
       url_must_equal 'chris/dotfiles/issues/1234'
     end
+
+    it 'prs' do
+      @command = 'prs'
+      url_must_equal 'dashboard/pulls/owned'
+    end
   end
 end
