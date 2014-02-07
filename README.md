@@ -7,8 +7,8 @@ Have you heard of this thing called [Alfred][alfred]?
 
 ## What do you have?
 
-- [`github`][github] Use this workflow to open repositories and issues on
-  github.com using Alfred.
+- [`github`][github] Use this workflow to open repositories, issues, and pull
+  requests on github.com using Alfred.
 
 [alfred]: http://www.alfredapp.com
 [github]: https://github.com/chrishunt/alfred/tree/master/github

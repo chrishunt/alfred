@@ -1,5 +1,6 @@
 class GitHubAlfred
   GITHUBDOTCOM = 'https://github.com'
+  OWNEDPRS     = "#{GITHUBDOTCOM}/dashboard/pulls/owned"
 
   # When no user is specified, we'll use the default user
   DEFAULT_USER = 'github'
@@ -20,8 +21,18 @@ class GitHubAlfred
   end
 
   def url(command = @command)
-    return GITHUBDOTCOM if command.empty?
+    if command.empty?
+      GITHUBDOTCOM
+    elsif command == 'prs'
+      OWNEDPRS
+    else
+      parse_url_for command
+    end
+  end
 
+  private
+
+  def parse_url_for(command)
     if command.split.count == 2
       command, issue = command.split
     end
@@ -34,8 +45,6 @@ class GitHubAlfred
 
     url_for user, repo_for(repo), issue
   end
-
-  private
 
   def repo_for(repo)
     REPO_ALIASES.fetch(repo) { repo }

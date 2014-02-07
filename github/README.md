@@ -1,11 +1,12 @@
 # GitHub
 
-Use this workflow to open repositories and issues on [github.com][github] using
-Alfred.
+Use this workflow to open repositories, issues, and pull requests on
+[github.com][github] using Alfred.
 
 ## Usage
 
 - `git` Open github.com
+- `git prs` Show all my open pull requests
 - `git repo` Open repo for the default user
 - `git user/repo` Open repo for the specified user
 - `git repo 5561` Open issue (or pull) 5561 for repo for the default user
