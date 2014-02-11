@@ -19,6 +19,16 @@ describe GitHubAlfred do
       url_must_equal ''
     end
 
+    it 'prs' do
+      @command = 'prs'
+      url_must_equal 'dashboard/pulls/owned'
+    end
+
+    it 's query' do
+      @command = "s dot's files"
+      url_must_equal 'search?q=dot%27s+files'
+    end
+
     it 'repo' do
       @command = 'dotfiles'
       url_must_equal 'github/dotfiles'
@@ -37,11 +47,6 @@ describe GitHubAlfred do
     it 'user/repo 1234' do
       @command = 'chris/dotfiles 1234'
       url_must_equal 'chris/dotfiles/issues/1234'
-    end
-
-    it 'prs' do
-      @command = 'prs'
-      url_must_equal 'dashboard/pulls/owned'
     end
   end
 end

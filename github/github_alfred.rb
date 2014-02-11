@@ -1,6 +1,7 @@
+require 'cgi'
+
 class GitHubAlfred
   GITHUBDOTCOM = 'https://github.com'
-  OWNEDPRS     = "#{GITHUBDOTCOM}/dashboard/pulls/owned"
 
   # When no user is specified, we'll use the default user
   DEFAULT_USER = 'github'
@@ -21,37 +22,30 @@ class GitHubAlfred
   end
 
   def url(command = @command)
-    if command.empty?
+    command, *params = command.split
+
+    if command.to_s.empty?
       GITHUBDOTCOM
     elsif command == 'prs'
-      OWNEDPRS
+      "#{GITHUBDOTCOM}/dashboard/pulls/owned"
+    elsif command == 's'
+      "#{GITHUBDOTCOM}/search?q=#{CGI.escape params.join(" ")}"
     else
-      parse_url_for command
+      repo, user = command.split('/').reverse
+
+      repo_url_for user, repo, params.first
     end
   end
 
   private
 
-  def parse_url_for(command)
-    if command.split.count == 2
-      command, issue = command.split
-    end
+  def repo_url_for(user, repo, issue)
+    url = [
+      GITHUBDOTCOM,
+      user || DEFAULT_USER,
+      REPO_ALIASES.fetch(repo) { repo }
+    ]
 
-    if command.split('/').count == 2
-      user, repo = command.split('/')
-    else
-      repo = command
-    end
-
-    url_for user, repo_for(repo), issue
-  end
-
-  def repo_for(repo)
-    REPO_ALIASES.fetch(repo) { repo }
-  end
-
-  def url_for(user, repo, issue)
-    url = [GITHUBDOTCOM, user || DEFAULT_USER, repo]
     url << ['issues', issue] if issue
 
     url.join '/'
