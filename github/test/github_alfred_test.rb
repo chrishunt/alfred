@@ -21,7 +21,7 @@ describe GitHubAlfred do
 
     it 'prs' do
       @command = 'prs'
-      url_must_equal 'dashboard/pulls/owned'
+      url_must_equal 'pulls'
     end
 
     it 's query' do

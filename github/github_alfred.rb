@@ -27,7 +27,7 @@ class GitHubAlfred
     if command.to_s.empty?
       GITHUBDOTCOM
     elsif command == 'prs'
-      "#{GITHUBDOTCOM}/dashboard/pulls/owned"
+      "#{GITHUBDOTCOM}/pulls"
     elsif command == 's'
       "#{GITHUBDOTCOM}/search?q=#{CGI.escape params.join(" ")}"
     else
