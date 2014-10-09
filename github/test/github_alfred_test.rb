@@ -5,6 +5,13 @@ require 'minitest/pride'
 require_relative '../github_alfred'
 
 describe GitHubAlfred do
+  GitHubAlfred::DEFAULT_USER = 'default-user'
+
+  GitHubAlfred::REPO_ALIASES = {
+    'alias-with-user' => 'user/repo',
+    'alias-without-user' => 'repo'
+  }
+
   describe '#url' do
     def url_must_equal(url)
       url = nil if url.empty?
@@ -31,7 +38,7 @@ describe GitHubAlfred do
 
     it 'repo' do
       @command = 'dotfiles'
-      url_must_equal 'github/dotfiles'
+      url_must_equal 'default-user/dotfiles'
     end
 
     it 'user/repo' do
@@ -41,12 +48,22 @@ describe GitHubAlfred do
 
     it 'repo 1234' do
       @command = 'dotfiles 123'
-      url_must_equal 'github/dotfiles/issues/123'
+      url_must_equal 'default-user/dotfiles/issues/123'
     end
 
     it 'user/repo 1234' do
       @command = 'chris/dotfiles 1234'
       url_must_equal 'chris/dotfiles/issues/1234'
+    end
+
+    it 'alias-with-user' do
+      @command = 'alias-with-user'
+      url_must_equal 'user/repo'
+    end
+
+    it 'alias-without-user' do
+      @command = 'alias-without-user'
+      url_must_equal 'default-user/repo'
     end
   end
 end

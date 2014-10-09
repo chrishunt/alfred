@@ -8,7 +8,7 @@ class GitHubAlfred
 
   # Repository aliases for those long repo names
   #
-  #   'alias' => 'really-long-repo-name'
+  #   'alias' => 'user/really-long-repo-name'
   #   'dots'  => 'dot-files'
   REPO_ALIASES = {
   }
@@ -31,7 +31,7 @@ class GitHubAlfred
     elsif command == 's'
       "#{GITHUBDOTCOM}/search?q=#{CGI.escape params.join(" ")}"
     else
-      repo, user = command.split('/').reverse
+      repo, user = REPO_ALIASES.fetch(command, command).split('/').reverse
 
       repo_url_for user, repo, params.first
     end
@@ -43,7 +43,7 @@ class GitHubAlfred
     url = [
       GITHUBDOTCOM,
       user || DEFAULT_USER,
-      REPO_ALIASES.fetch(repo) { repo }
+      repo
     ]
 
     url << ['issues', issue] if issue
