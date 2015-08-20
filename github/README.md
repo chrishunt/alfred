@@ -6,6 +6,7 @@ Use this workflow to open repositories, issues, and pull requests on
 ## Usage
 
 - `git` Open github.com
+- `git issues` Show all my open issues
 - `git prs` Show all my open pull requests
 - `git s query` Search for query
 - `git repo` Open repo for the default user
