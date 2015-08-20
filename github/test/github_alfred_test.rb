@@ -31,6 +31,11 @@ describe GitHubAlfred do
       url_must_equal 'pulls'
     end
 
+    it 'issues' do
+      @command = 'issues'
+      url_must_equal 'issues'
+    end
+
     it 's query' do
       @command = "s dot's files"
       url_must_equal 'search?q=dot%27s+files'

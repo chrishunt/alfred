@@ -28,6 +28,8 @@ class GitHubAlfred
       GITHUBDOTCOM
     elsif command == 'prs'
       "#{GITHUBDOTCOM}/pulls"
+    elsif command == 'issues'
+      "#{GITHUBDOTCOM}/issues"
     elsif command == 's'
       "#{GITHUBDOTCOM}/search?q=#{CGI.escape params.join(" ")}"
     else
